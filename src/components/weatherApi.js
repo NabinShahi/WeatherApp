@@ -3,7 +3,10 @@ import axios from 'axios';
 import ShowWeather from './showWeather.js';
 
 export default function Weather() {
-    const key = "dfae51cc4aaa608064f53dea8c45f5e3"
+    
+    const key = process.env.REACT_APP_SECRET_KEY;
+    // console.log(process.env.REACT_APP_SECRET_KEY);
+
     const [cityName , setCityName] = useState('');
     const [weather, setWeather] = useState([]);
 
@@ -31,7 +34,7 @@ export default function Weather() {
         </div>
         </form>
         {
-            weather.data != undefined ?
+            weather.data !== undefined ?
 
             <div className="container">
                 <ShowWeather data = {weather.data} />
